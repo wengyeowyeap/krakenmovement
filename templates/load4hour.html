@@ -1,0 +1,11 @@
+<div id="load4hour" class="m-4">
+    <h3>Last 4 Hour Change</h3>
+    <table>
+        <tr><th></th><th>Pair</th><th>Change</th></tr>
+        {% for i in sorted4hour %}
+        {% if not loop.index > 10 %}
+        <tr><th>{{loop.index}}</th><td>{{ i.name }}</td><td>{{ i.change }}</td></tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>

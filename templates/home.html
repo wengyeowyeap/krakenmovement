@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Kraken Crypto Movements
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+  <div class="d-flex flex-wrap justify-content-center">
+    {% include "load1min.html" %}
+    {% include "load5min.html" %}
+    {% include "load15min.html" %}
+    {% include "load30min.html" %}
+    {% include "load1hour.html" %}
+    {% include "load4hour.html" %}
+  </div>
+{% endblock %}
