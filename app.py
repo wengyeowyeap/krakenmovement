@@ -61,11 +61,11 @@ def inject_load():
             elif close_price - open_price > 0:
                 for pair in onemin_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * 100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / low_price) * 100))) })
             elif close_price - open_price < 0:
                 for pair in onemin_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * -100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / high_price) * -100))) })
 
     def ws_open_onemin(ws):
         query = '{"event":"subscribe", "subscription":{"name":"ohlc", "interval":1}, "pair":['+ filteredstring + ']}'
@@ -84,7 +84,7 @@ def inject_load():
         global fivemin_change
         import json
         from datetime import datetime, timedelta
-        print("WebSocket thread (5m): %s" % message)
+        # print("WebSocket thread (5m): %s" % message)
         message = json.loads(message)
 
         if message[2] == "ohlc-5":
@@ -102,11 +102,11 @@ def inject_load():
             elif close_price - open_price > 0:
                 for pair in fivemin_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * 100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / low_price) * 100))) })
             elif close_price - open_price < 0:
                 for pair in fivemin_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * -100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / high_price) * -100))) })
     def ws_open_fivemin(ws):
         query = '{"event":"subscribe", "subscription":{"name":"ohlc", "interval":5}, "pair":['+ filteredstring + ']}'
         ws.send(query)
@@ -142,11 +142,10 @@ def inject_load():
             elif close_price - open_price > 0:
                 for pair in fifteenmin_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * 100})
-            elif close_price - open_price < 0:
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / low_price) * 100))) })
                 for pair in fifteenmin_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * -100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / high_price) * -100))) })
 
     def ws_open_fifteenmin(ws):
         query = '{"event":"subscribe", "subscription":{"name":"ohlc", "interval":15}, "pair":['+ filteredstring + ']}'
@@ -183,11 +182,11 @@ def inject_load():
             elif close_price - open_price > 0:
                 for pair in thirtymin_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * 100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / low_price) * 100))) })
             elif close_price - open_price < 0:
                 for pair in thirtymin_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * -100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / high_price) * -100))) })
 
     def ws_open_thirtymin(ws):
         query = '{"event":"subscribe", "subscription":{"name":"ohlc", "interval":30}, "pair":['+ filteredstring + ']}'
@@ -224,11 +223,11 @@ def inject_load():
             elif close_price - open_price > 0:
                 for pair in onehour_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * 100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / low_price) * 100))) })
             elif close_price - open_price < 0:
                 for pair in onehour_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * -100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / high_price) * -100))) })
 
     def ws_open_onehour(ws):
         query = '{"event":"subscribe", "subscription":{"name":"ohlc", "interval":60}, "pair":['+ filteredstring + ']}'
@@ -265,11 +264,11 @@ def inject_load():
             elif close_price - open_price > 0:
                 for pair in fourhour_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * 100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / low_price) * 100))) })
             elif close_price - open_price < 0:
                 for pair in fourhour_change:
                     if pair["name"] == current_pair:
-                        pair.update({'name': current_pair, 'change': ((high_price - low_price) / low_price) * -100})
+                        pair.update({'name': current_pair, 'change': float("{:.2f}".format(float(((high_price - low_price) / high_price) * -100))) })
 
     def ws_open_fourhour(ws):
         query = '{"event":"subscribe", "subscription":{"name":"ohlc", "interval":240}, "pair":['+ filteredstring + ']}'

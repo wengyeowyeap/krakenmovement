@@ -1,9 +1,11 @@
-<div id="pageload1min" class="m-3">
-    <h3>Last 1 Minute Change</h3>
-    <table>
-        <tr><th></th><th>Pair</th><th>Change</th></tr>
-        {% for i in sorted1min %}
-        <tr><th>{{loop.index}}</th><td>{{ i.name }}</td><td>{{ i.change }}</td></tr>
-        {% endfor %}
-    </table>
+<div id="pageload1min" class="m-3 d-flex justify-content-center">
+    <div>
+        <h3 class="text-center">Last 1 Minute Change</h3>
+        <table class="table table-bordered">
+            <tr><th></th><th>Pair</th><th>Change(%)</th></tr>
+            {% for i in sorted1min %}
+            <tr><th>{{loop.index}}</th><td>{{ i.name }}</td><td>{{ i.change }}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
